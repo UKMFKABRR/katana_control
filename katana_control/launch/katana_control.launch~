@@ -1,0 +1,23 @@
+<launch>
+
+  <rosparam file="$(find katana_control)/config/katana_control.yaml" command="load"/>
+
+<!-- load the controkatanars -->
+  <node name="katana_control" pkg="controkatanar_manager" type="spawner" respawn="false"
+	output="screen" ns="/katana" args="--namespace=/katana 
+katana_motor1_pan_joint_position_controkatanar
+katana_motor2_lift_joint_position_controkatanar
+katana_motor3_lift_joint_position_controkatanar
+katana_motor4_lift_joint_position_controkatanar
+katana_motor5_wrist_roll_joint_position_controkatanar
+katana_r_finger_joint_controkatanar
+katana_l_finger_joint_controkatanar
+--timeout 100"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="/katana/joint_states" />
+  </node>
+
+</launch>
