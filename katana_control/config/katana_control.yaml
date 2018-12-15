@@ -1,4 +1,4 @@
-katana_450_6m90b:
+katana_450_6m90a:
 
   # Publish all joint states -----------------------------------
   joint_state_controller:
@@ -7,36 +7,39 @@ katana_450_6m90b:
 
   # Position Controllers ---------------------------------------
   katana_motor1_pan_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: j_hip_r
+    type: effort_controllers/JointTrajectoryController
+    joint: katana_motor1_pan_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_motor2_lift_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: j_knee_r
+    type: effort_controllers/JointTrajectoryController
+    joint: katana_motor2_pan_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_motor3_lift_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: j_hip_l
+    type: effort_controllers/JointTrajectoryController
+    joint: katana_motor3_pan_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_motor4_lift_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: j_knee_l
+    type: effort_controllers/JointTrajectoryController
+    joint: katana_motor4_pan_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_motor5_wrist_roll_joint_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: j_foot_l
+    type: effort_controllers/JointTrajectoryController
+    joint: katana_motor5_wrist_roll_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_r_finger_joint_controller:
     type: effort_controllers/JointPositionController
-    joint: j_foot_r
+    joint: katana_r_finger_joint
     pid: {p: 100, i: 0.01, d: 10}
 
   katana_l_finger_joint_controller:
     type: effort_controllers/JointPositionController
-    joint: j_foot_r
+    joint: katana_l_finger_joint
     pid: {p: 100, i: 0.01, d: 10}
+
+
+
